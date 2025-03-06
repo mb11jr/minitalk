@@ -6,7 +6,7 @@
 /*   By: mbentale <mbentale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 12:26:51 by mbentale          #+#    #+#             */
-/*   Updated: 2024/12/28 09:50:31 by mbentale         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:52:14 by mbentale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,14 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdint.h>
+# include <stdarg.h>
+
+int		ft_printf(const char *format, ...);
+void	ft_printstr(char *str, int *count);
+void	ft_printu(unsigned int value, int *count);
+void	ft_printid(int id, int *count);
+void	ft_printhex(unsigned int value, const char c, int *count);
+void	ft_printp(unsigned long long value, int *count);
 
 typedef struct s_list
 {

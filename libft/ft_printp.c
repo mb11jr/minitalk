@@ -6,11 +6,11 @@
 /*   By: mbentale <mbentale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:48:05 by mbentale          #+#    #+#             */
-/*   Updated: 2024/11/13 10:55:17 by mbentale         ###   ########.fr       */
+/*   Updated: 2025/03/06 15:13:43 by mbentale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 static size_t	count_digits_ptr(unsigned long long num)
 {

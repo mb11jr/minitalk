@@ -6,11 +6,11 @@
 /*   By: mbentale <mbentale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 11:11:02 by mbentale          #+#    #+#             */
-/*   Updated: 2024/11/13 10:59:07 by mbentale         ###   ########.fr       */
+/*   Updated: 2025/03/06 15:13:33 by mbentale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 static size_t	count_digits_hex(unsigned int num)
 {

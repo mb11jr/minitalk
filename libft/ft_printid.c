@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printu.c                                        :+:      :+:    :+:   */
+/*   ft_printid.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbentale <mbentale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 10:43:46 by mbentale          #+#    #+#             */
-/*   Updated: 2024/11/13 10:41:08 by mbentale         ###   ########.fr       */
+/*   Created: 2024/11/12 10:41:53 by mbentale          #+#    #+#             */
+/*   Updated: 2025/03/06 15:13:39 by mbentale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_printu(unsigned int value, int *count)
+static size_t	count_digits(int num)
 {
-	if (value >= 10)
-		ft_printu(value / 10, count);
-	ft_putchar_fd(value % 10 + '0', 1);
-	(*count)++;
+	size_t	count;
+
+	count = 0;
+	if (num <= 0)
+		count++;
+	while (num != 0)
+	{
+		num /= 10;
+		count++;
+	}
+	return (count);
+}
+
+void	ft_printid(int value, int *count)
+{
+	ft_putnbr_fd(value, 1);
+	*count += count_digits(value);
 }
