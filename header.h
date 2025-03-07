@@ -6,7 +6,7 @@
 /*   By: mbentale <mbentale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 10:33:00 by mbentale          #+#    #+#             */
-/*   Updated: 2025/03/06 15:04:13 by mbentale         ###   ########.fr       */
+/*   Updated: 2025/03/07 11:03:02 by mbentale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,5 @@
 #include "libft/libft.h"
 #include <unistd.h>
 #include <signal.h>
-#include <sys/types.h>
 
 #endif
