@@ -1,24 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbentale <mbentale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/05 10:33:00 by mbentale          #+#    #+#             */
-/*   Updated: 2025/03/08 23:01:40 by mbentale         ###   ########.fr       */
+/*   Created: 2025/03/08 17:59:56 by mbentale          #+#    #+#             */
+/*   Updated: 2025/03/08 18:00:18 by mbentale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-#define HEADER_H
+#include "header.h"
 
-#include <signal.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include "libft/libft.h"
-#include <unistd.h>
+static int	is_digit(char *str)
+{
+	int	i;
 
-int	ft_strict_atoi(char *str);
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+    {
+        if (str[i] == '-')
+            return (0);
+		i++;
+    }
+	if (!str[i])
+		return (0);
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
-#endif
+int	ft_strict_atoi(char *str)
+{
+    if (is_digit((str)))
+        return (ft_atoi(str));
+    return (0);
+}
