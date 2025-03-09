@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbentale <mbentale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/05 10:32:40 by mbentale          #+#    #+#             */
-/*   Updated: 2025/03/09 08:09:10 by mbentale         ###   ########.fr       */
+/*   Created: 2025/03/09 00:15:14 by mbentale          #+#    #+#             */
+/*   Updated: 2025/03/09 08:10:56 by mbentale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,19 @@ void	ft_send_bits(int pid, unsigned char letter)
 	}
 }
 
+void	received_msg(int signum)
+{
+	if (signum == SIGUSR1)
+		ft_printf("\n\033[32mMessage received successfully!\033[0m ✅\n");
+}
+
 int	main(int ac, char **av)
 {
 	int			server_pid;
 	const char	*message;
 	int			i;
 
+	signal(SIGUSR1, received_msg);
 	if (ac == 3)
 	{
 		server_pid = ft_strict_atoi(av[1]);

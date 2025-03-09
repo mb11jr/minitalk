@@ -1,16 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbentale <mbentale@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/05 10:32:44 by mbentale          #+#    #+#             */
-/*   Updated: 2025/03/09 08:50:46 by mbentale         ###   ########.fr       */
+/*   Created: 2025/03/09 00:18:14 by mbentale          #+#    #+#             */
+/*   Updated: 2025/03/09 09:10:03 by mbentale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+
+static void	handle_received_msg(siginfo_t *info)
+{
+	ft_printf("\n\033[32mMessage fully received! \033[0m✅");
+	kill(info->si_pid, SIGUSR1);
+}
 
 void	signal_handler(int signum, siginfo_t *info, void *context)
 {
@@ -32,7 +38,7 @@ void	signal_handler(int signum, siginfo_t *info, void *context)
 	if (bit_index == 8)
 	{
 		if (character == '\0')
-			ft_printf("\n");
+			handle_received_msg(info);
 		else
 			ft_printf("%c", character);
 		bit_index = 0;
